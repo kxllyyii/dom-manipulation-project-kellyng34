@@ -4,17 +4,17 @@ const DOMSelectors = {
     form: document.querySelector("#form"),
     firstName: document.querySelector(".firstName"),
     lastName: document.querySelector(".lastName"),
-    .pic: document.querySelector(".pic"),
+    pic: document.querySelector(".pic"),
     box: document.querySelector(".box"),
     button: document.querySelector(".button"),
 };
 
 /* console.log(DOMSelectors.firstName); */
 
-function divCreater(){
+function divCreater(firstName, lastName, pic){
     DOMSelectors.container.insertAdjacentHTML(
     "afterbegin",
-    `<div class="container"><div class="card">${firstName}<p>Animal</p><img scr="${pic}" alt=""class="cardimg">${lastName}<button class = "button">Remove</button></div>`
+    `<div class="container"><div class="card">${firstName}<p>Your Animal</p><img scr="${pic}" alt=""class="cardimg">${lastName}<button class = "button">Remove</button></div>`
     )};
 
 function insert(){
@@ -27,21 +27,24 @@ function insert(){
         const remove= document.querySelectorAll(".button");
         remove.forEach((button)=> {
             button.addEventListener("click", function(event){
-                const objectToRemove =  event.target.parentElemnt;
+                const objectToRemove =  event.target.parentElement;
                 objectToRemove.remove();
             });
         });
-    })};
-
-   
-
-
-function display(){
-    document.getElementById("firstName").innerText = firstName
-    document.getElementById("lastName").innerText = lastName
-    document.getElementById("pic").src = pic
-    display()
+    });
 }
+
+    insert()
+   
+function clear(){
+    DOMSelectors.form.addEventListener("submit", function(event){
+        event.preventDefault();
+        DOMSelectors.firstName.value = "";
+        DOMSelectors.lastName.value= "";
+        DOMSelectors.pic.value= "";
+    });
+}
+clear()
 
 
 
