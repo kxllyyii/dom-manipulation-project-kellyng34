@@ -5,46 +5,57 @@ const DOMSelectors = {
     firstName: document.querySelector(".firstName"),
     lastName: document.querySelector(".lastName"),
     pic: document.querySelector(".pic"),
-    box: document.querySelector(".box"),
-    button: document.querySelector(".button"),
+    container: document.querySelector(".container"),
 };
 
-/* console.log(DOMSelectors.firstName); */
+function insert() {
+  DOMSelectors.form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const firstName = DOMSelectors.firstName.value
+    const lastName = DOMSelectors.lastName.value
+    const pic = DOMSelectors.pic.value
 
-function divCreater(firstName, lastName, pic){
-    DOMSelectors.container.insertAdjacentHTML(
-    "afterbegin",
-    `<div class="container"><div class="card">${firstName}<p>Your Animal</p><img scr="${pic}" alt=""class="cardimg">${lastName}<button class = "button">Remove</button></div>`
+    function divCreator(){
+        DOMSelectors.container.insertAdjacentHTML(
+            "afterbegin",
+            `<div class="container">
+              <div class="card">
+                ${firstName}
+                <p>Your Food</p>
+                <img src="${pic}" alt="" class="cardimg">
+                ${lastName}
+                <button class="button">Remove</button>
+              </div>
+            </div>`
+            )};
+          divCreator();
+        }
     )};
+  insert();
 
-function insert(){
-    DOMSelectors.form.addEventListener("submit", function(event){
-        event.preventDefault();
-        const firstName = DOMSelectors.firstName.value
-        const lastName = DOMSelectors.lastName.value
-        const pic = DOMSelectors.pic.value
-        divCreater(firstName, lastName, pic)
-        const remove= document.querySelectorAll(".button");
-        remove.forEach((button)=> {
-            button.addEventListener("click", function(event){
-                const objectToRemove =  event.target.parentElement;
-                objectToRemove.remove();
-            });
-        });
-    });
-}
 
-    insert()
-   
+        //clear form fields\\
+
 function clear(){
-    DOMSelectors.form.addEventListener("submit", function(event){
-        event.preventDefault();
+            DOMSelectors.form.addEventListener("submit", function(event){
+                event.preventDefault();
         DOMSelectors.firstName.value = "";
         DOMSelectors.lastName.value= "";
         DOMSelectors.pic.value= "";
+     });
+    }
+clear();
+
+
+
+function remove() {
+  const buttons = document.querySelectorAll(".button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      const objectToRemove = event.target.closest(".card");
+      objectToRemove.remove();
     });
+  });
 }
-clear()
 
-
-
+remove();
