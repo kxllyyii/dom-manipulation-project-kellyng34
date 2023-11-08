@@ -8,7 +8,6 @@ const DOMSelectors = {
     container: document.querySelector(".container"),
 };
 
-function insert() {
   DOMSelectors.form.addEventListener("submit", function (event) {
     event.preventDefault();
     const firstName = DOMSelectors.firstName.value
@@ -29,24 +28,19 @@ function insert() {
             </div>`
             )};
           divCreator();
+        
         }
-    )};
-  insert();
-
-
-        //clear form fields\\
+    );
 
 function clear(){
-            DOMSelectors.form.addEventListener("submit", function(event){
-                event.preventDefault();
-        DOMSelectors.firstName.value = "";
-        DOMSelectors.lastName.value= "";
-        DOMSelectors.pic.value= "";
+        DOMSelectors.form.addEventListener("submit", function(event){
+          event.preventDefault();
+          DOMSelectors.firstName.value = "";
+          DOMSelectors.lastName.value= "";
+          DOMSelectors.pic.value= "";
      });
     }
-clear();
-
-
+    clear();
 
 function remove() {
   const buttons = document.querySelectorAll(".button");
