@@ -1,27 +1,28 @@
-body
-{
+html, 
+body,
+*{
     background-color: rgb(169, 239, 250);
-    font-size: 170%;
+    font-size: 25px;
     text-align: center;
     align-items: center;
     font-style: italic;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-
 }
 
 .container{ 
     display: flex;
+    flex: wrap;
     justify-content: space-around;
-    flex-wrap: wrap;
     align-items: center;
     
 }
 .card{
-    height: 50vh;
+    height: 60vh;
     width: 23%;
     background-color: rgba(181, 223, 247, 0.2);
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     justify-content: space-around;
     margin: 2rem 0;
@@ -32,4 +33,17 @@ body
 
 .cardname{
     font-size: 10px;
+    margin: 8px;
+    padding: 10px;
+    justify-content: space-evenly;
+    
+}
+
+.cardimg{
+    width: auto;
+    height: auto;
+}
+.button{
+    margin: auto;
+    padding: 1.5px;
 }
