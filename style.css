@@ -28,5 +28,8 @@ body
     border-radius: 12px;
     border: 5px solid rgb(255, 255, 255);
     box-shadow: 10px 10px rgb(160, 206, 233);
-    transition: all 0.3s;
+}
+
+.cardname{
+    font-size: 10px;
 }
